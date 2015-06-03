@@ -32,3 +32,7 @@ RegEx Parameters for filtering:
 The -b parameter describes a blacklist (e.g. if you have templates or servers that should not be included in the
 automatic generation of the config (default is none)).
 -m includes everything that matches the pattern (default is everything)
+
+## generateGatewayObjects
+I needed those object in an environment to generate gateway objects. Later in the check configuration I use them as
+a dependency (no use trying to check your servers and services if the gateway of the VLAN is down...
