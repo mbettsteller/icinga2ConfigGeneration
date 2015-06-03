@@ -36,3 +36,4 @@ automatic generation of the config (default is none)).
 ## generateGatewayObjects
 I needed those object in an environment to generate gateway objects. Later in the check configuration I use them as
 a dependency (no use trying to check your servers and services if the gateway of the VLAN is down...
+
