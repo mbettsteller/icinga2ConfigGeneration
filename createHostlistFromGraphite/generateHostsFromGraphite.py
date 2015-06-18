@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 __author__ = 'Markus Bettsteller, markus@bettsteller.de'
 import urllib.request
 import json
