@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 __author__ = 'Markus Bettsteller, markus@bettsteller.de'
 import urllib.request
 import json
@@ -143,7 +143,34 @@ for (fqdn) in fqdn_valid:
         project = splitted[1]
         environment = splitted[2]
         groups = ["fromGraphite", project, environment]
+    elif len(splitted) == 2:
+        functionFound = re.findall(functionmatch, splitted[0])
+        if functionFound:
+            serverFunction = ""
+            for (f) in functionFound:
+                if len(f) > 0:
+                    serverFunction += f
+        if len(serverFunction) < 1:
+            serverFunction = "unknownFunction"
+        project = splitted[1]
+        environment = "unknownEnvironment"
+        groups = ["fromGraphite", project, environment]
+    elif len(splitted) == 1:
+        functionFound = re.findall(functionmatch, splitted[0])
+        if functionFound:
+            serverFunction = ""
+            for (f) in functionFound:
+                if len(f) > 0:
+                    serverFunction += f
+        if len(serverFunction) < 1:
+            serverFunction = "unknownFunction"
+        project = "unknownProject"
+        environment = "unknownEnvironment"
+        groups = ["fromGraphite", project, environment]
     else:
+        serverFunction = "unknownFunction"
+        project = "unknownProject"
+        environment = "unknownEnvironment"
         groups = ["fromGraphite"]
 
     host = IcingaHost(_fqdn=fqdn, _hostname=hostname, _groups=groups, _project=project, serverfunction=serverFunction,
